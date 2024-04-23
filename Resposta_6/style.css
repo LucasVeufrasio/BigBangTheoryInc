@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px; 
+}
+body {
+    text-align: center;
+    background-image: url('T.png');
+    background-size: 100% 300%;
+    font-family: 'Poppins', sans-serif;
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}

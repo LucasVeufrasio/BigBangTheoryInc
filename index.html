@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="black-screen"><p>A long time ago in a galaxy far,<br>
+         far away....</p></div>
+
+
+    <header class="header">
+     <!--   <h1>Bem-vindo à página inicial</h1>
+    </header>-->
+
+    <div class="container">
+        <ul>
+            <h3 id="diagonal">Episódio  I</h3>
+            <li><a class="resposta1" href="./Resposta_1">Resposta_1</a></li>
+            <li><a class="resposta2" href="./Resposta_2">Resposta_2</a></li>
+            <li><a class="resposta3" href="./Resposta_3">Resposta_3</a></li>
+            <li><a class="resposta4" href="./Resposta_4">Resposta_4</a></li>
+            <li><a class="resposta5" href="./Resposta_5">Resposta_5</a></li>
+            <li><a class="resposta6" href="./Resposta_6">Resposta_6</a></li>
+        </ul>
+    </div>
+    
+    <h5>QUANDO TERMINAR, RESOLVA A EQUAÇÃO DE DRAKE</h5>
+    <h1> N = R* x fp x ne x fl x fi x fc x L</h1>
+
+    <script>
+        // Adiciona um event listener para detectar o carregamento da página
+        window.addEventListener("load", function() {
+            // Após 5 segundos, remove a tela preta
+            setTimeout(function() {
+                document.getElementById("black-screen").style.display = "none";
+            }, 3000);
+        });
+
+        // Adiciona um event listener para detectar qualquer tecla pressionada
+        document.addEventListener("keydown", function(event) {
+            // Redireciona para a página inicial quando qualquer tecla é pressionada
+            window.location.href = "./";
+        });
+    </script>
+</body>
+</html>

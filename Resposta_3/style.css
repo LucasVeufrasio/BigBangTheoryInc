@@ -1,0 +1,60 @@
+body {
+    background-image: url('testec.jpg');
+    background-size: 100%;
+    background-position: 60%;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: Antonio;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #131b2e;
+}
+
+.total-wrapper,
+.filtro-wrapper {
+    text-align: center;
+    color: #fff;
+}
+
+.vendas-wrapper {
+    margin-top: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo personalizado para o botão */
+.filter-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo de hover para o botão */
+.filter-button:hover {
+    background-color: #45a049; /* Cor de fundo verde mais escura no hover */
+}

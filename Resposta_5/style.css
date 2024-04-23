@@ -1,0 +1,86 @@
+body {
+   background-image: url('sheldon.png');
+   background-size: 100% 110%;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+h1{
+    text-align: right;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+h3{
+    width: 200px;
+    margin-top: 200px;
+}
+#diagonal {
+    transform: rotate(-45deg);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white; 
+}
+
+th {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
