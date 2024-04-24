@@ -18,4 +18,114 @@ Agora o passo a passo para você colar o banco de dados que está no link acima 
 
 
 
-###                                  Requisitos
+###    Conexao.php
+
+                                            http://localhost/bigbangtheoryinc/
+
+```PHP
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bigbang";
+```
+
+### Consulta no Banco de Dados
+
+
+O código PHP abaixo está realizando uma consulta no banco de dados para obter informações sobre pedidos. Em seguida, exibe esses dados em uma tabela HTML, destacando as linhas de acordo com a média de vendas por dia. 
+```PHP
+$sql = "SELECT order_id, order_user_id, order_total, DATE_FORMAT(order_date, '%Y-%m-%d') AS data_completa, SUM(order_total) AS total_dia, COUNT(*) AS num_pedidos FROM orders GROUP BY DATE_FORMAT(order_date, '%Y-%m-%d')";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+
+        echo "<table>";
+        echo "<tr><th>ID do Pedido</th><th>ID do Usuário</th><th>Total do Pedido</th><th>Data do Pedido</th><th>Média dos Pedidos</th></tr>";
+        
+        while($row = $result->fetch_assoc()) {    
+            $media = $row["total_dia"] / $row["num_pedidos"];
+
+            $cor_linha = '';
+            if ($media < 3000) {
+                $cor_linha = 'red';
+            } elseif ($media > 3000) {
+                $cor_linha = 'green';
+            } else {
+                $cor_linha = 'grey';
+            }
+
+            echo "<tr class='$cor_linha'>";
+            echo "<td>" . $row["order_id"] . "</td>";
+            echo "<td>" . $row["order_user_id"] . "</td>";
+            echo "<td>" . $row["order_total"] . "</td>";
+            echo "<td>" . $row["data_completa"] . "</td>";
+            echo "<td>" . round($media, 2) . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "Nenhum resultado encontrado";
+    }
+    $conn->close();
+    ?>
+```
+### Alterando o País 
+ Esse código em PHP está consultando o banco de dados para obter os IDs de usuários disponíveis. Em seguida, exibe um formulário onde o usuário pode selecionar um ID de usuário e inserir um novo país. Quando o formulário é enviado, o código verifica se o ID do usuário está disponível e, se sim, atualiza o país do usuário no banco de dados. 
+``` PHP
+ $availableUsersQuery = "SELECT `user_id` FROM `user`";
+        $availableUsersResult = $conn->query($availableUsersQuery);
+        $availableUsers = [];
+
+        if ($availableUsersResult->num_rows > 0) {
+            while ($row = $availableUsersResult->fetch_assoc()) {
+                $availableUsers[] = $row["user_id"];
+            }
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userId = $_POST['userId'];
+            $newCountry = $_POST['newCountry'];
+
+            if (in_array($userId, $availableUsers)) {
+                
+                $sql = "UPDATE `user` SET `user_country` = '$newCountry' WHERE `user_id` = $userId";
+
+                if ($conn->query($sql) === TRUE) {
+                    echo "<p>País atualizado com sucesso!</p>";
+                } else {
+                    echo "<p>Erro ao atualizar o país: " . $conn->error . "</p>";
+                }
+            } else {
+                echo "<p>ID de usuário inválido. Por favor, escolha um dos IDs disponíveis.</p>";
+            }
+        }
+
+        echo "<form action=\"" . htmlspecialchars($_SERVER["PHP_SELF"]) . "\" method=\"POST\">";
+        echo "<label for=\"userId\">ID do Usuário:</label>";
+        echo "<select id=\"userId\" name=\"userId\" required>";
+        foreach ($availableUsers as $user) {
+            echo "<option value=\"$user\">$user</option>";
+        }
+        echo "</select>";
+        echo "<label for=\"newCountry\">Novo País:</label>";
+        echo "<input type=\"text\" id=\"newCountry\" name=\"newCountry\" required>";
+        echo "<button type=\"submit\">Alterar País</button>";
+        echo "</form>";
+
+        $query = "SELECT * FROM `user`";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            echo "<h2>Lista de Países</h2>";
+            echo "<table>";
+            echo "<tr><th>ID</th><th>Nome</th><th>Endereço</th><th>Cidade</th><th>País</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["user_id"] . "</td><td>" . $row["user_name"] . "</td><td>" . $row["user_address"] . "</td><td>" . $row["user_city"] . "</td><td>" . $row["user_country"] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>Nenhum país encontrado.</p>";
+        }
+        $conn->close();
+        ?>
+```
