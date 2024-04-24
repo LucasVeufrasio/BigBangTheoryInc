@@ -129,3 +129,14 @@ $sql = "SELECT order_id, order_user_id, order_total, DATE_FORMAT(order_date, '%Y
         $conn->close();
         ?>
 ```
+
+
+## Sobre o Teste
+
+Adorei o desafio! Sou um grande fã da série The Big Bang Theory e fiquei muito entusiasmado ao descobrir que o teste estava relacionado a isso. Gostaria de ter um pouco mais de tempo com o projeto, mas compreendo a importância de entregá-lo o quanto antes para a avaliação.
+
+Aprendi muito trabalhando nesse projeto. Esta foi a minha primeira experiência com PHP, e até comecei um curso para aprofundar meus conhecimentos. Além disso, recebi muitas orientações sobre PHP de alguns professores da faculdade.
+
+Enfrentei algumas dificuldades, especialmente ao alterar o país, e incrivelmente, o que mais me exigiu estudo foi o README, já que nunca havia feito um antes.
+
+Espero que tenham apreciado o meu trabalho. Se eu for escolhido para a vaga, ficarei extremamente feliz também.
